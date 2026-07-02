@@ -26,4 +26,5 @@
 
 -- SELECT title, price FROM books ORDER BY price DESC;
 --     SELECT * FROM  books WHERE price <= 40 ORDER BY price DESC ;
-SELECT title, published_year FROM books WHERE published_year <2005 ORDER BY published_year ASC;
+-- SELECT title, published_year FROM books WHERE published_year <2005 ORDER BY published_year ASC;
+SELECT * FROM books ORDER BY price DESC LIMIT 1;
