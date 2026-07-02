@@ -13,4 +13,5 @@
 -- SELECT title,price FROM books ORDER BY price DESC LIMIT 2;
 -- SELECT DISTINCT genre FROM books;
 -- SELECT DISTINCT country FROM authors;
-SELECT title FROM books;
+-- SELECT title FROM books;
+SELECT title, price FROM books WHERE price < 40;
