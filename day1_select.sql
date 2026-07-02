@@ -20,4 +20,5 @@
 -- SELECT title FROM  books WHERE title LIKE ('Clean%');
 -- SELECT title, price FROM books ORDER BY price ASC LIMIT 5;
 -- SELECT DISTINCT genre FROM books;
-SELECT title,price FROM books WHERE genre='Programming' AND price >= 40 ORDER BY price DESC ;
+-- SELECT title,price FROM books WHERE genre='Programming' AND price >= 40 ORDER BY price DESC ;
+SELECT name,country FROM authors WHERE country NOT IN ('USA') ;
