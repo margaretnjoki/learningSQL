@@ -1,0 +1,8 @@
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# OS
+Thumbs.db
+Desktop.ini

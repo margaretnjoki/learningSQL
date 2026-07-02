@@ -1,0 +1,16 @@
+-- SELECT name,country FROM authors;
+-- SELECT * FROM books;
+-- SELECT title, price FROM  books WHERE price < 40;
+-- SELECT title, genre FROM books WHERE genre='Programming';
+-- SELECT title,published_year FROM books WHERE published_year BETWEEN 1999 AND 2008;
+-- SELECT name, country FROM  authors WHERE country IN ('USA','UK');
+-- SELECT title,genre FROM books WHERE genre IN ('Architecture', 'Programming');
+-- SELECT title, published_year FROM books WHERE published_year NOT BETWEEN 2000 AND  2015;
+-- SELECT title FROM books WHERE title LIKE ('Clean%');
+-- SELECT name FROM authors WHERE country IS NULL ;
+-- SELECT title, published_year FROM  books WHERE published_year IS NULL ;
+-- SELECT title, published_year FROM books ORDER BY  published_year DESC  LIMIT 5;
+-- SELECT title,price FROM books ORDER BY price DESC LIMIT 2;
+-- SELECT DISTINCT genre FROM books;
+-- SELECT DISTINCT country FROM authors;
+SELECT title FROM books;
