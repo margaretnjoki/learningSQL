@@ -25,3 +25,4 @@
 -- SELECT genre FROM books WHERE genre IS NULL ;
 
 -- SELECT title, price FROM books ORDER BY price DESC;
+SELECT * FROM  books WHERE price <= 40;
