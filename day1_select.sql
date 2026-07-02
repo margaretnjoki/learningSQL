@@ -19,4 +19,5 @@
 -- SELECT title, published_year FROM books WHERE published_year BETWEEN 2000 AND 2010;
 -- SELECT title FROM  books WHERE title LIKE ('Clean%');
 -- SELECT title, price FROM books ORDER BY price ASC LIMIT 5;
-SELECT DISTINCT genre FROM books;
+-- SELECT DISTINCT genre FROM books;
+SELECT title,price FROM books WHERE genre='Programming' AND price >= 40 ORDER BY price DESC ;
