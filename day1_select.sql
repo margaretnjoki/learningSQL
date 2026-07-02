@@ -22,4 +22,6 @@
 -- SELECT DISTINCT genre FROM books;
 -- SELECT title,price FROM books WHERE genre='Programming' AND price >= 40 ORDER BY price DESC ;
 -- SELECT name,country FROM authors WHERE country NOT IN ('USA') ;
-SELECT genre FROM books WHERE genre IS NULL ;
+-- SELECT genre FROM books WHERE genre IS NULL ;
+
+-- SELECT title, price FROM books ORDER BY price DESC;
