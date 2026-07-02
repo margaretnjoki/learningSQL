@@ -14,4 +14,5 @@
 -- SELECT DISTINCT genre FROM books;
 -- SELECT DISTINCT country FROM authors;
 -- SELECT title FROM books;
-SELECT title, price FROM books WHERE price < 40;
+-- SELECT title, price FROM books WHERE price < 40;
+SELECT title FROM  books WHERE genre IN ('Architecture');
