@@ -18,4 +18,5 @@
 -- SELECT title FROM  books WHERE genre IN ('Architecture');
 -- SELECT title, published_year FROM books WHERE published_year BETWEEN 2000 AND 2010;
 -- SELECT title FROM  books WHERE title LIKE ('Clean%');
-SELECT title, price FROM books ORDER BY price ASC LIMIT 5;
+-- SELECT title, price FROM books ORDER BY price ASC LIMIT 5;
+SELECT DISTINCT genre FROM books;
