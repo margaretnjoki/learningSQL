@@ -40,6 +40,45 @@ INSERT INTO books(title, genre,price)VALUES
        ('The Goons', 'Programming', 30.44),
        ('the saying', 'programming', 40.12);
 
+CREATE TABLE customers(
+    id SERIAL PRIMARY KEY ,
+    name VARCHAR (100) NOT NULL ,
+    email VARCHAR(120),
+    city VARCHAR(60)
+);
 
+CREATE TABLE  orders(
+    id SERIAL PRIMARY KEY ,
+    customer_id INTEGER REFERENCES customers(id),
+    order_date DATE NOT NULL ,
+    status VARCHAR(20)
+);
+
+CREATE TABLE order_items(
+    id SERIAL PRIMARY KEY ,
+    order_id INTEGER REFERENCES orders(id),
+    book_id INTEGER REFERENCES books(id),
+    quantity INTEGER NOT NULL
+);
+
+INSERT INTO customers(name, email, city) VALUES
+    ('Amina Yusuf', 'amina@mail.com', 'Nairobi'),
+    ('Brian otieno', 'brian@mail.com','Kisumu'),
+    ('Chen Wei', 'chen@mail.com','Nairobi'),
+    ('Dorothy Kim', NULL,'Mombasa');
+
+INSERT INTO orders(customer_id, order_date, status) VALUES
+         (1,'2024-01-10', 'PAID'),
+         (1,'2024-02-15','SHIPPED'),
+         (2,'2024-02-20','PAID'),
+         (3,'2024-03-01','PENDING');
+
+INSERT INTO order_items(order_id, book_id, quantity) VALUES
+        (1,1,1),
+        (1,4,2),
+        (2,5,1),
+        (3,3,1),
+        (3,8,1),
+        (4,1,3);
 
 
