@@ -26,14 +26,46 @@
 -- COMMIT;
 
 -- CREATE INDEX  idx_orders_customer ON orders(customer_id);
-CREATE INDEX idx_books_author_id
-    ON books(author_id);
+-- CREATE INDEX idx_books_author_id
+--     ON books (author_id);
+--
+-- CREATE INDEX idx_orders_customer_id
+--     ON orders (customer_id);
+--
+-- CREATE INDEX idx_order_items_order_id
+--     ON order_items (order_id);
+--
+-- CREATE INDEX idx_order_items_book_id
+--     ON order_items (book_id);
 
-CREATE INDEX idx_orders_customer_id
-    ON orders(customer_id);
+BEGIN;
 
-CREATE INDEX idx_order_items_order_id
-    ON order_items(order_id);
+INSERT INTO customers (name, email, city)
+VALUES ('Jane Smith', 'jane.smith@mail.com', 'Nairobi');
 
-CREATE INDEX idx_order_items_book_id
-    ON order_items(book_id);
+INSERT INTO orders (customer_id, order_date, status)
+VALUES ((SELECT id
+         FROM customers
+         WHERE email = 'jane.smith@mail.com'),
+        CURRENT_DATE,
+        'PAID');
+
+INSERT INTO order_items (order_id, book_id, quantity)
+VALUES ((SELECT MAX(id)
+         FROM orders
+         WHERE customer_id = (SELECT id
+                              FROM customers
+                              WHERE email = 'jane.smith@mail.com')),
+        1,
+        2);
+
+INSERT INTO order_items (order_id, book_id, quantity)
+VALUES ((SELECT MAX(id)
+         FROM orders
+         WHERE customer_id = (SELECT id
+                              FROM customers
+                              WHERE email = 'jane.smith@mail.com')),
+        4,
+        1);
+
+COMMIT;
