@@ -12,4 +12,9 @@
 
 -- ALTER TABLE books ADD CONSTRAINT chk_price CHECK ( price>0 );
 
-CREATE INDEX idx_items_book ON order_items(book_id);
+-- CREATE INDEX idx_items_book ON order_items(book_id);
+
+EXPLAIN SELECT * FROM orders WHERE customer_id=1;
+CREATE INDEX idx_orders_customer ON orders(customer_id);
+EXPLAIN SELECT * FROM orders WHERE customer_id=1;
+
