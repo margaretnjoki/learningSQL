@@ -8,4 +8,6 @@
 
 -- DELETE FROM order_items WHERE quantity=0;
 
-ALTER TABLE customers ADD CONSTRAINT uq_email UNIQUE (email);
+-- ALTER TABLE customers ADD CONSTRAINT uq_email UNIQUE (email);
+
+ALTER TABLE books ADD CONSTRAINT chk_price CHECK ( price>0 );

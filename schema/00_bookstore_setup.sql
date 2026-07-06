@@ -29,6 +29,8 @@ INSERT INTO books(title, author_id, price, published_year, genre) VALUES
        ('Pattern of Enterprice App Arch', 4,54.00, 2002,'Architecture'),
        ('Test Driven Development',5, 39.99, 2002, 'Programming'),
        ('Domain-Driven', 4,55.00, 2003, 'Architecture');
+--         ('Clean test', 1, -10.00,2008, 'Programming');
+
 
 
 INSERT INTO authors(name, country) VALUES
