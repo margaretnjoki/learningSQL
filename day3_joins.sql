@@ -34,17 +34,11 @@
 -- JOIN orders o       ON o.customer_id = c.id
 -- JOIN order_items oi ON oi.order_id = o.id
 --  JOIN books b        ON b.id = oi.book_id;
-SELECT b.title, SUM(b.price * oi.quantity) AS revenue
-FROM books b
-JOIN order_items oi ON oi.book_id = b.id
-GROUP BY b.title ORDER BY revenue DESC;
+-- SELECT b.title, SUM(b.price * oi.quantity) AS revenue
+-- FROM books b
+-- JOIN order_items oi ON oi.book_id = b.id
+-- GROUP BY b.title ORDER BY revenue DESC;
 
-
-
-
-
-
-2q
 
 
 
