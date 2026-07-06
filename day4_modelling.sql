@@ -10,4 +10,6 @@
 
 -- ALTER TABLE customers ADD CONSTRAINT uq_email UNIQUE (email);
 
-ALTER TABLE books ADD CONSTRAINT chk_price CHECK ( price>0 );
+-- ALTER TABLE books ADD CONSTRAINT chk_price CHECK ( price>0 );
+
+CREATE INDEX idx_items_book ON order_items(book_id);
