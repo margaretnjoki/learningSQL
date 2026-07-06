@@ -25,4 +25,15 @@
 --              (2,3,3);
 -- COMMIT;
 
-CREATE INDEX  idx_orders_customer ON orders(customer_id);
+-- CREATE INDEX  idx_orders_customer ON orders(customer_id);
+CREATE INDEX idx_books_author_id
+    ON books(author_id);
+
+CREATE INDEX idx_orders_customer_id
+    ON orders(customer_id);
+
+CREATE INDEX idx_order_items_order_id
+    ON order_items(order_id);
+
+CREATE INDEX idx_order_items_book_id
+    ON order_items(book_id);

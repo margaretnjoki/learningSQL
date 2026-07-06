@@ -83,4 +83,15 @@ INSERT INTO order_items(order_id, book_id, quantity) VALUES
         (3,8,1),
         (4,1,3);
 
+ALTER TABLE books
+    ADD CONSTRAINT chk_books_price
+        CHECK (price >= 0);
+ALTER TABLE order_items
+    ADD CONSTRAINT chk_order_items_quantity
+        CHECK (quantity > 0);
+
+ALTER TABLE customers
+    ADD CONSTRAINT uq_customers_email
+        UNIQUE (email);
+
 
