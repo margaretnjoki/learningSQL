@@ -14,7 +14,13 @@
 
 -- CREATE INDEX idx_items_book ON order_items(book_id);
 
-EXPLAIN SELECT * FROM orders WHERE customer_id=1;
-CREATE INDEX idx_orders_customer ON orders(customer_id);
-EXPLAIN SELECT * FROM orders WHERE customer_id=1;
+-- EXPLAIN SELECT * FROM orders WHERE customer_id=1;
+-- CREATE INDEX idx_orders_customer ON orders(customer_id);
+-- EXPLAIN SELECT * FROM orders WHERE customer_id=1;
 
+BEGIN;
+INSERT INTO orders(customer_id, order_date, status) VALUES
+          (3,'2024-02-12', 'PENDING');
+INSERT INTO order_items(order_id, book_id, quantity) VALUES
+             (2,3,3);
+COMMIT;
