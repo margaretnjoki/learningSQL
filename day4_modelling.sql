@@ -38,34 +38,43 @@
 -- CREATE INDEX idx_order_items_book_id
 --     ON order_items (book_id);
 
-BEGIN;
+-- BEGIN;
+--
+-- INSERT INTO customers (name, email, city)
+-- VALUES ('Jane Smith', 'jane.smith@mail.com', 'Nairobi');
+--
+-- INSERT INTO orders (customer_id, order_date, status)
+-- VALUES ((SELECT id
+--          FROM customers
+--          WHERE email = 'jane.smith@mail.com'),
+--         CURRENT_DATE,
+--         'PAID');
+--
+-- INSERT INTO order_items (order_id, book_id, quantity)
+-- VALUES ((SELECT MAX(id)
+--          FROM orders
+--          WHERE customer_id = (SELECT id
+--                               FROM customers
+--                               WHERE email = 'jane.smith@mail.com')),
+--         1,
+--         2);
+--
+-- INSERT INTO order_items (order_id, book_id, quantity)
+-- VALUES ((SELECT MAX(id)
+--          FROM orders
+--          WHERE customer_id = (SELECT id
+--                               FROM customers
+--                               WHERE email = 'jane.smith@mail.com')),
+--         4,
+--         1);
+--
+-- COMMIT;
 
-INSERT INTO customers (name, email, city)
-VALUES ('Jane Smith', 'jane.smith@mail.com', 'Nairobi');
-
-INSERT INTO orders (customer_id, order_date, status)
-VALUES ((SELECT id
-         FROM customers
-         WHERE email = 'jane.smith@mail.com'),
-        CURRENT_DATE,
-        'PAID');
-
-INSERT INTO order_items (order_id, book_id, quantity)
-VALUES ((SELECT MAX(id)
-         FROM orders
-         WHERE customer_id = (SELECT id
-                              FROM customers
-                              WHERE email = 'jane.smith@mail.com')),
-        1,
-        2);
-
-INSERT INTO order_items (order_id, book_id, quantity)
-VALUES ((SELECT MAX(id)
-         FROM orders
-         WHERE customer_id = (SELECT id
-                              FROM customers
-                              WHERE email = 'jane.smith@mail.com')),
-        4,
-        1);
-
-COMMIT;
+SELECT
+    b.genre,
+    SUM(b.price * oi.quantity) AS total_revenue
+FROM books b
+         JOIN order_items oi
+              ON b.id = oi.book_id
+GROUP BY b.genre
+HAVING SUM(b.price * oi.quantity) > 500;
